@@ -66,6 +66,13 @@ TRACEPOINT_EVENT(lttng_ust_java, string_event,
 	)
 )
 
+TRACEPOINT_EVENT(lttng_ust_java, event,
+	TP_ARGS(const char *, name),
+	TP_FIELDS(
+		ctf_string(name, name)
+	)
+)
+
 #endif /* _TRACEPOINT_LTTNG_UST_JAVA_H */
 
 #undef TRACEPOINT_INCLUDE

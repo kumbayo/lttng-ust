@@ -92,3 +92,14 @@ JNIEXPORT void JNICALL Java_org_lttng_ust_LTTngUst_tracepointString(JNIEnv *env,
 	(*env)->ReleaseStringUTFChars(env, payload, payload_cstr);
 }
 
+JNIEXPORT void JNICALL Java_org_lttng_ust_LTTngUst_tracepoint(JNIEnv *env,
+						jobject jobj,
+						jstring ev_name)
+{
+	jboolean iscopy;
+	const char *ev_name_cstr = (*env)->GetStringUTFChars(env, ev_name, &iscopy);
+
+	tracepoint(lttng_ust_java, event, ev_name_cstr);
+
+	(*env)->ReleaseStringUTFChars(env, ev_name, ev_name_cstr);
+}

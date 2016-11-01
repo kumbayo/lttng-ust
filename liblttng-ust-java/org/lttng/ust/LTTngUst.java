@@ -106,5 +106,14 @@ public abstract class LTTngUst {
      */
     public static native void tracepointString(String name, String payload);
 
+    /**
+     * Insert a tracepoint without payload.
+     *
+     * @param name
+     *            The name assigned to this event. For best performance, this
+     *            should be a statically-defined String, or a literal.
+     */
+    public static native void tracepoint(String name);
+
 }
 
